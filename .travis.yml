@@ -38,6 +38,6 @@ script:
   - cd $DEMO
   - mkdir build
   - cd build 
-  - cmake .. -DCMAKE_PREFIX_PATH=../glm;../glfw;
+  - cmake .. -DCMAKE_PREFIX_PATH=../../glm;../../glfw;
   - cmake --build .
 
