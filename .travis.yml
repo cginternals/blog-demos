@@ -12,9 +12,8 @@ compiler:
 
 env:
   matrix:
-    - CMAKE_CONFIGURATION=release BUILD_DIR=build
-    - CMAKE_CONFIGURATION=debug BUILD_DIR=build-debug
-  - DEMO=screen-aligned-triangle
+    - CMAKE_CONFIGURATION=release BUILD_DIR=build       DEMO=screen-aligned-triangle
+    - CMAKE_CONFIGURATION=debug   BUILD_DIR=build-debug DEMO=screen-aligned-triangle
 
 before_install:
   - if [ $TRAVIS_OS_NAME == linux ]; then sudo apt-add-repository ppa:cginternals/backports-ppa -y; fi
