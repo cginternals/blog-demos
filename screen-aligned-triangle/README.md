@@ -47,3 +47,7 @@ In order to compile the project, either use you favorite Editor/IDE with the cre
 ```bash
 > cmake --build .
 ```
+
+##### Run Instructions
+
+For running the demo make sure that glbinding and glfw3 binaries can be located and that the working directory contains the `data` folder with all shaders (which can be changed and reloaded at run-time).
