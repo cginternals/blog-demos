@@ -26,7 +26,7 @@ before_install:
       cd glm ;
       git checkout tags/0.9.8.5 ;
       cmake . -DCMAKE_INSTALL_PREFIX=. ;
-      cmake --build . install;
+      cmake --build . --target install;
     fi
 
 before_script:
