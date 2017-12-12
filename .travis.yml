@@ -14,6 +14,7 @@ env:
   matrix:
     - CMAKE_CONFIGURATION=release BUILD_DIR=build
     - CMAKE_CONFIGURATION=debug BUILD_DIR=build-debug
+  - DEMO=screen-aligned-triangle
 
 before_install:
   - if [ $TRAVIS_OS_NAME == linux ]; then sudo apt-add-repository ppa:cginternals/backports-ppa -y; fi
@@ -21,6 +22,7 @@ before_install:
   - if [ $TRAVIS_OS_NAME == linux ]; then sudo apt-get install -qq cmake libgl1-mesa-dev mesa-common-dev libglfw3-dev clang-tidy-3.8 libglm-dev libglbinding-dev ; fi
 
 before_script:
+  - cd $DEMO 
   - ./configure
   - if [ $CMAKE_CONFIGURATION == release ]; then ./configure; fi
   - if [ $CMAKE_CONFIGURATION == debug ]; then ./configure debug; fi
