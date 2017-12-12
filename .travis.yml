@@ -8,33 +8,41 @@ os:
 
 compiler:
   - gcc
-  - clang
+  # clang
 
 env:
   matrix:
     - CMAKE_BUILD_TYPE=Release  DEMO=screen-aligned-triangle
-    - CMAKE_BUILD_TYPE=Debug    DEMO=screen-aligned-triangle
+    # CMAKE_BUILD_TYPE=Debug    DEMO=screen-aligned-triangle
 
 before_install:
   - if [ $TRAVIS_OS_NAME == linux ]; then
       sudo apt-add-repository ppa:cginternals/backports-ppa -y ;
       sudo apt-get update -qq ;
-      sudo apt-get install -qq cmake libgl1-mesa-dev mesa-common-dev libglfw3-dev clang-tidy-3.8 libglm-dev libglbinding-dev ;
+      sudo apt-get install -qq cmake libgl1-mesa-dev mesa-common-dev clang-tidy-3.8 libglbinding-dev;
     fi
-  - if [ $TRAVIS_OS_NAME == linux ]; then
-      git clone https://github.com/g-truc/glm.git ;
-      cd glm ;
-      git checkout tags/0.9.8.5 ;
-      cmake . -DCMAKE_INSTALL_PREFIX=. ;
-      cmake --build install;
-    fi
+  - git clone https://github.com/g-truc/glm.git ;
+    cd glm ;
+    pwd ;
+    git checkout tags/0.9.8.5 ;
+    cmake . -DCMAKE_INSTALL_PREFIX=. ;
+    cmake --build . --target install;
+    cd ..
+  - sudo apt-get install -qq libxrandr-dev libxinerama-dev libxcb-xkb-dev libxcursor-dev ;
+    git clone https://github.com/glfw/glfw.git ;
+    cd glfw ;
+    pwd ;
+    git checkout tags/3.2.1 ;
+    cmake . -DCMAKE_INSTALL_PREFIX=. -DGLFW_BUILD_EXAMPLES=Off -DGLFW_BUILD_TESTS=Off -DGLFW_BUILD_DOCS=Off -DGLFW_VULKAN_STATIC=Off ;
+    cmake --build . --target install ;
+    cd ..
 
-before_script:
+script:
+  - pwd
   - cd $DEMO
   - mkdir build
   - cd build 
-
-script:
-  - cmake ..
-  - cmake --build 
+  - pwd
+  - cmake .. -DCMAKE_PREFIX_PATH="$PWD/../../glm;$PWD/../../glfw"
+  - cmake --build .
 
