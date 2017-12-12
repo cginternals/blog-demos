@@ -22,9 +22,9 @@ before_install:
 
 before_script:
   - echo $DEMO
-  - echo {$DEMO}
-  - echo DEMO
+  - ls
   - cd $DEMO 
+  - ls
   - ./configure
   - if [ $CMAKE_CONFIGURATION == release ]; then ./configure; fi
   - if [ $CMAKE_CONFIGURATION == debug ]; then ./configure debug; fi
