@@ -22,9 +22,9 @@ before_install:
       sudo apt-get install -qq cmake libgl1-mesa-dev mesa-common-dev libglfw3-dev clang-tidy-3.8 libglm-dev libglbinding-dev
     fi
   - if [ $TRAVIS_OS_NAME == linux ]; then
-      git clone https://github.com/g-truc/glm.git --fetch-tags
+      git clone https://github.com/g-truc/glm.git
       cd glm
-      git checkout 0.9.8.5
+      git checkout tags/0.9.8.5
       cmake . -DISNTALL_PREFIX=.
       cmake --build install
     fi
