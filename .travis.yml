@@ -7,8 +7,8 @@ os:
   - linux
 
 compiler:
-  - gcc
-  # clang
+  # gcc
+  - clang
 
 env:
   matrix:
