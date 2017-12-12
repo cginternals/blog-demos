@@ -28,7 +28,7 @@ before_install:
     cmake . -DCMAKE_INSTALL_PREFIX=. ;
     cmake --build . --target install;
     cd ..
-  - sudo apt-get install -qq libxrandr-dev libxinerama-dev libxkb-dev libxcursor-dev ;
+  - sudo apt-get install -qq libxrandr-dev libxinerama-dev libxcb-xkb-dev libxcursor-dev ;
     git clone https://github.com/glfw/glfw.git ;
     cd glfw ;
     pwd ;
