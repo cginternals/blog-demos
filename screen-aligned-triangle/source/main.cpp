@@ -9,7 +9,6 @@
 // https://github.com/cginternals/glbinding
 #include <glbinding/Binding.h>
 
-#include "cgutils.h""
 #include "screenalignedtriangle.h"
 
 

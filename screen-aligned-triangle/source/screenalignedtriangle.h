@@ -1,3 +1,4 @@
+#pragma once
 
 #include <glbinding/gl32core/gl.h>  // this is a OpenGL feature include; it declares all OpenGL 3.2 Core symbols
 

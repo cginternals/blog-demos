@@ -8,10 +8,9 @@ set_policy(CMP0054 NEW) # ENABLE CMP0054: Only interpret if() arguments as varia
 # Include cmake modules
 list(APPEND CMAKE_MODULE_PATH "${CMAKE_CURRENT_SOURCE_DIR}/cmake")
 
-project("Screen-Aligned Triangle" C CXX)
+project("Screen-Aligned-Triangle" C CXX)
 set(target screen_aligned_triangle)
 
-find_package(glm REQUIRED)
 find_package(glfw3 REQUIRED)
 find_package(glbinding REQUIRED)
 
@@ -74,7 +73,6 @@ target_link_libraries(${target}
     PRIVATE
     ${DEFAULT_LIBRARIES}
     glfw
-    glm
     glbinding::glbinding
 )
 
@@ -83,7 +81,6 @@ target_compile_definitions(${target}
     ${DEFAULT_COMPILE_DEFINITIONS}
     PUBLIC
     GLFW_INCLUDE_NONE
-    GLM_FORCE_RADIANS
 )
 
 target_compile_options(${target}

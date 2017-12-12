@@ -1,10 +1,8 @@
 
 #include "screenalignedtriangle.h"
 
-#include <cmath>
 #include <iostream>
 #include <string>
-#include <set>
 
 #include <glbinding/gl32ext/gl.h>
 #include <glbinding/Meta.h>
@@ -72,7 +70,7 @@ void ScreenAlignedTriangle::initialize()
     glGenBuffers(1, &m_VBO_screenAlignedTriangle);
     glGenBuffers(1, &m_VBO_screenAlignedQuad);
 
-    static const float verticesScreenAlignedTriangle[] = { -1.f, -3.f, -1.f, 1.f, 3.f, 1.f };
+    static const float verticesScreenAlignedTriangle[] = { -1.f, -1.f, -1.f, 3.f, 3.f, -1.f };
     static const float verticesScrAQ[] = { -1.f, -1.f, -1.f, 1.f, 1.f, -1.f, 1.f, 1.f };
 
     glGenVertexArrays(1, &m_VAO_screenAlignedTriangle);
@@ -516,8 +514,7 @@ void ScreenAlignedTriangle::updateThreshold()
 
 void ScreenAlignedTriangle::switchDrawMode()
 {
-    m_recorded = false;
-    m_vaoMode = static_cast<Mode>((static_cast<unsigned int>(m_vaoMode) + 1u) % 5u);
+    switchDrawMode(static_cast<Mode>((static_cast<unsigned int>(m_vaoMode) + 1u) % 5u));
 }
 
 void ScreenAlignedTriangle::switchDrawMode(const Mode mode)
