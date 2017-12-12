@@ -3,7 +3,7 @@
 
 // C++ library for creating windows with OpenGL contexts and receiving 
 // input and events http://www.glfw.org/ 
-#include <GLFW/glfw3.h> 
+#include <glfw/glfw3.h> 
 
 // C++ binding for the OpenGL API. 
 // https://github.com/cginternals/glbinding

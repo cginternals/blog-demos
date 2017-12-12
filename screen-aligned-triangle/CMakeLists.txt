@@ -11,8 +11,8 @@ list(APPEND CMAKE_MODULE_PATH "${CMAKE_CURRENT_SOURCE_DIR}/cmake")
 project("Screen-Aligned Triangle" C CXX)
 set(target screen_aligned_triangle)
 
-find_package(GLM REQUIRED)
-find_package(GLFW REQUIRED)
+find_package(glm REQUIRED)
+find_package(glfw3 REQUIRED)
 find_package(glbinding REQUIRED)
 
 # Exit if using Mac OS
@@ -22,8 +22,8 @@ if (APPLE)
 endif()
 
 # Exit if required dependencies are not met
-if (NOT GLFW_FOUND)
-    message("${target} skipped: GLFW not found")
+if (NOT glfw3_FOUND)
+    message("${target} skipped: glfw3 not found")
     return()
 endif()
 
@@ -67,15 +67,14 @@ target_include_directories(${target}
     ${DEFAULT_INCLUDE_DIRECTORIES}
     ${PROJECT_BINARY_DIR}/source
     SYSTEM
-    ${GLFW_INCLUDE_DIR}
-    ${GLM_INCLUDE_DIR} 
     $<BUILD_INTERFACE:${CMAKE_CURRENT_SOURCE_DIR}>
 )
 
 target_link_libraries(${target}
     PRIVATE
     ${DEFAULT_LIBRARIES}
-    ${GLFW_LIBRARIES}
+    glfw
+    glm
     glbinding::glbinding
 )
 
