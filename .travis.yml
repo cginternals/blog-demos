@@ -17,8 +17,8 @@ env:
 
 before_install:
   # c++14
-  # sudo add-apt-repository -y ppa:ubuntu-toolchain-r/test
-  # sudo apt-get update -qq
+  - sudo add-apt-repository -y ppa:ubuntu-toolchain-r/test
+  - sudo apt-get update -qq
   # 3rdp
   - if [ $TRAVIS_OS_NAME == linux ]; then
       sudo apt-add-repository ppa:cginternals/backports-ppa -y ;
@@ -32,8 +32,8 @@ before_install:
     
 install: 
   # c++14
-  # sudo apt-get install -qq g++-6
-  # sudo update-alternatives --install /usr/bin/g++ g++ /usr/bin/g++-6 90
+  - sudo apt-get install -qq g++-6
+  - sudo update-alternatives --install /usr/bin/g++ g++ /usr/bin/g++-6 90
   # 3rdp
   - if [ $TRAVIS_OS_NAME == linux ]; then
       sudo apt-get install -qq cmake libgl1-mesa-dev mesa-common-dev clang-tidy-3.8 libglbinding-dev;
