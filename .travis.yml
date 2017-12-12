@@ -21,6 +21,9 @@ before_install:
   - if [ $TRAVIS_OS_NAME == linux ]; then sudo apt-get install -qq cmake libgl1-mesa-dev mesa-common-dev libglfw3-dev clang-tidy-3.8 libglm-dev libglbinding-dev ; fi
 
 before_script:
+  - echo $DEMO
+  - echo {$DEMO}
+  - echo DEMO
   - cd $DEMO 
   - ./configure
   - if [ $CMAKE_CONFIGURATION == release ]; then ./configure; fi
