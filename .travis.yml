@@ -34,12 +34,10 @@ before_install:
     cmake --build . --target install;
     cd ..
 
-before_script:
+script:
   - cd $DEMO
   - mkdir build
   - cd build 
-
-script:
   - cmake .. -DCMAKE_PREFIX_PATH=../glm;../glfw;
   - cmake --build .
 
