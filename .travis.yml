@@ -25,7 +25,7 @@ before_install:
       git clone https://github.com/g-truc/glm.git ;
       cd glm ;
       git checkout tags/0.9.8.5 ;
-      cmake . -DISNTALL_PREFIX=. ;
+      cmake . -DCMAKE_INSTALL_PREFIX=. ;
       cmake --build install;
     fi
 
