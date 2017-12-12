@@ -19,15 +19,14 @@ before_install:
   - if [ $TRAVIS_OS_NAME == linux ]; then
       sudo apt-add-repository ppa:cginternals/backports-ppa -y ;
       sudo apt-get update -qq ;
-      sudo apt-get install -qq cmake libgl1-mesa-dev mesa-common-dev libglfw3-dev clang-tidy-3.8 libglm-dev libglbinding-dev ;
+      sudo apt-get install -qq cmake libgl1-mesa-dev mesa-common-dev libglfw3-dev clang-tidy-3.8 libglbinding-dev ;
     fi
-  - if [ $TRAVIS_OS_NAME == linux ]; then
-      git clone https://github.com/g-truc/glm.git ;
-      cd glm ;
-      git checkout tags/0.9.8.5 ;
-      cmake . -DCMAKE_INSTALL_PREFIX=. ;
-      cmake --build . --target install;
-    fi
+  - git clone https://github.com/g-truc/glm.git ;
+    cd glm ;
+    git checkout tags/0.9.8.5 ;
+    cmake . -DCMAKE_INSTALL_PREFIX=. ;
+    cmake --build . --target install;
+    cd ..
 
 before_script:
   - cd $DEMO
@@ -35,6 +34,6 @@ before_script:
   - cd build 
 
 script:
-  - cmake ..
+  - cmake .. -DCMAKE_PREFIX_PATH=../glm;
   - cmake --build .
 
