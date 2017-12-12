@@ -33,7 +33,7 @@ First, create a build directory (we do not recommend in-source builds):
 > cd build
 ```
 
-Make sure CMake will be able to find glbinding, glfw3, and glm directories by either using `set CMAKE_PREFIX_PATH=<GLBINDING_DIR>;<GLM_DIR>;<GLFW_DIR>;` or `$env.CMAKE_PREFIX_PATH="<GLBINDING_DIR>;<GLM_DIR>;<GLFW_DIR>;"` or use cmake-gui to setup these paths manually during configuration.
+Make sure CMake will be able to find glbinding, glfw3, and glm directories by either using `set CMAKE_PREFIX_PATH=<GLBINDING_DIR>;<GLM_DIR>;<GLFW_DIR>;` or `$env.CMAKE_PREFIX_PATH="<GLBINDING_DIR>;<GLM_DIR>;<GLFW_DIR>;"` (Power Shell on Windows) or use cmake-gui to setup these paths manually during configuration.
 
 Configure *screen-aligned-triangle* with your preferred or default generator, e.g., for Visual Studio 2017 in x64 use
 (note: some IDEs have integrated support for CMake projects, e.g., Qt Creator, and allow you to skip the manual project configuration):
