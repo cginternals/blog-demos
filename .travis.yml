@@ -8,12 +8,12 @@ os:
 
 compiler:
   - gcc
-  - clang
+  # clang
 
 env:
   matrix:
     - CMAKE_BUILD_TYPE=Release  DEMO=screen-aligned-triangle
-    - CMAKE_BUILD_TYPE=Debug    DEMO=screen-aligned-triangle
+    # CMAKE_BUILD_TYPE=Debug    DEMO=screen-aligned-triangle
 
 before_install:
   - if [ $TRAVIS_OS_NAME == linux ]; then
