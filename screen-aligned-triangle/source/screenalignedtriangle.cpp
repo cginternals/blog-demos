@@ -1,8 +1,9 @@
 
 #include "screenalignedtriangle.h"
 
+#include <cmath>
+#include <cstring>
 #include <iostream>
-#include <string>
 
 #include <glbinding/gl32ext/gl.h>
 #include <glbinding/Meta.h>
