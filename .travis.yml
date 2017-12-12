@@ -23,21 +23,25 @@ before_install:
     fi
   - git clone https://github.com/g-truc/glm.git ;
     cd glm ;
+    pwd ;
     git checkout tags/0.9.8.5 ;
     cmake . -DCMAKE_INSTALL_PREFIX=. ;
     cmake --build . --target install;
     cd ..
   - git clone https://github.com/glfw/glfw.git ;
     cd glfw ;
+    pwd ;
     git checkout tags/3.2.1 ;
     cmake . -DCMAKE_INSTALL_PREFIX=. ;
     cmake --build . --target install;
     cd ..
 
 script:
+  - pwd
   - cd $DEMO
   - mkdir build
   - cd build 
-  - cmake .. -DCMAKE_PREFIX_PATH=../../glm;../../glfw;
+  - pwd
+  - cmake .. -DCMAKE_PREFIX_PATH=../glm;../glfw;
   - cmake --build .
 
