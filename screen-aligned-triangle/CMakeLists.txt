@@ -61,6 +61,12 @@ include(cmake/CompileOptions.cmake)
 
 add_executable(${target} ${sources})
 
+set_target_properties(${target}
+    PROPERTIES
+    ${DEFAULT_PROJECT_OPTIONS}
+    FOLDER "${IDE_FOLDER}"
+)
+
 target_include_directories(${target}
     PRIVATE
     ${DEFAULT_INCLUDE_DIRECTORIES}
