@@ -1,6 +1,6 @@
 # Screen-aligned Quads and Triangles
 
-[associated Blog Post]https://www.cginternals.com/en/blog/2018-01-10-screen-aligned-quads-and-triangles.html) on https://cginternals.com. Please note that this demo uses OpenGL 4.2 features and cannot run on Mac OS for now ([Mac computers that use OpenCL and OpenGL graphics](https://support.apple.com/en-us/HT202823)).
+[associated Blog Post](https://www.cginternals.com/en/blog/2018-01-10-screen-aligned-quads-and-triangles.html) on https://cginternals.com. Please note that this demo uses OpenGL 4.2 features and cannot run on Mac OS for now ([Mac computers that use OpenCL and OpenGL graphics](https://support.apple.com/en-us/HT202823)).
 
 ![Example Output](https://staging.cginternals.com/img/posts/blog/scrat-title.min.png)
 
