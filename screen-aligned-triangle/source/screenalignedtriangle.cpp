@@ -6,8 +6,8 @@
 #include <iostream>
 
 #include <glbinding/gl32ext/gl.h>
-#include <glbinding/Meta.h>
-#include <glbinding/ContextInfo.h>
+#include <glbinding-aux/Meta.h>
+#include <glbinding-aux/ContextInfo.h>
 
 #include "cgutils.h"
 
@@ -190,7 +190,7 @@ void ScreenAlignedTriangle::initialize()
     glGenQueries(1, &m_query);
 
     // test whether the NV_fill_rectangle extension is known and supported. If not, warn user
-    const auto extension = glbinding::Meta::getExtension("GL_NV_fill_rectangle");
+    const auto extension = glbinding::aux::Meta::getExtension("GL_NV_fill_rectangle");
 
     if (extension == gl::GLextension::UNKNOWN) 
     {
@@ -200,7 +200,7 @@ void ScreenAlignedTriangle::initialize()
     }
 
     const std::set<gl::GLextension> requiredExtensions = {extension};
-    if ( !glbinding::ContextInfo::supported(requiredExtensions) )
+    if ( !glbinding::aux::ContextInfo::supported(requiredExtensions) )
     {
         std::cout << "Your graphics card does not support the NV_fill_rectangle extension." << std::endl << "Draw mode 3 will not work properly." << std::endl << std::endl;
         m_NV_extension_supported = false;

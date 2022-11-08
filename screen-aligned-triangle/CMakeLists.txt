@@ -80,6 +80,7 @@ target_link_libraries(${target}
     ${DEFAULT_LIBRARIES}
     glfw
     glbinding::glbinding
+    glbinding::glbinding-aux
 )
 
 target_compile_definitions(${target}
